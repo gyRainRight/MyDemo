@@ -6,7 +6,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
 
-import com.gy.mydemo.Mvp.Base.utils.ZTLUtils;
+
 import com.gy.mydemo.R;
 import butterknife.ButterKnife;
 import butterknife.InjectView;

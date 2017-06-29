@@ -90,7 +90,8 @@ public class MovieActivity extends BaseActivity implements MovieContract.IMovieV
         StoreHouseHeader header = new StoreHouseHeader(this);
         float scale = getResources().getDisplayMetrics().density;
         header.setPadding(0, (int) (15 * scale + 0.5f), 0, (int) (15 * scale + 0.5f));
-        header.initWithString("HDL");//自定义头显示的字样,设置图片的话看另外的api
+        header.initWithString("GY");//自定义头显示的字样,设置图片的话看另外的api
+//      header.invalidateDrawable();
         header.setTextColor(Color.RED);
         header.setBackgroundColor(Color.parseColor("#11000000"));
         storeHousePtrFrame.setHeaderView(header);//添加头
