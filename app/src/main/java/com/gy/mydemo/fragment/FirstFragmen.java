@@ -2,6 +2,7 @@ package com.gy.mydemo.fragment;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,16 +13,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
 import com.gy.mydemo.IListener.MyItemClickListener;
+
+import com.gy.mydemo.Mvp.ui.MovieActivity;
 import com.gy.mydemo.R;
 import com.gy.mydemo.bean.NewData;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+import butterknife.OnClick;
 
 /**
  * Created by 名 on 2017/5/9.
@@ -32,17 +40,40 @@ public class FirstFragmen extends Fragment implements MyItemClickListener{
      private GalleryAdapter mAdapter;
 //    private List<Integer> mDatas;
     private List<NewData> mDatas;
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view=LayoutInflater.from(getActivity()).inflate(R.layout.fragment_shouye,container,false);
-//        initDatas(view);
-        //得到控件
+    @InjectView(R.id.mvp)
+    LinearLayout mvp;
 
-        return view;
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
     }
 
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+       final View view=LayoutInflater.from(getActivity()).inflate(R.layout.fragment_shouye,container,false);
+//        initDatas(view);
+        //得到控件
+        ButterKnife.inject(getActivity());
+        mvp= (LinearLayout) view.findViewById(R.id.mvp);
+        mvp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), MovieActivity.class));
+            }
+        });
+        return view;
+    }
+    @OnClick({R.id.mvp})
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.mvp:
+                startActivity(new Intent(getActivity(), MovieActivity.class));
+                break;
+
+        }
+    }
 
 
 

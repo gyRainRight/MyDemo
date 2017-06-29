@@ -50,6 +50,9 @@
         <activity android:name=".zxing.ThreeActivity"
             android:launchMode="singleTop">
         </activity>
+        <activity android:name=".Mvp.Base.ui.MovieActivity"
+            android:launchMode="singleTop">
+        </activity>
     </application>
 
 </manifest>
