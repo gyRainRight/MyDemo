@@ -21,7 +21,7 @@ public class SecondActivity extends BaseActivity {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_second;
+        return R.layout.content_second;
     }
 
     public static boolean isOpen = false;

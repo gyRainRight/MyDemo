@@ -13,7 +13,7 @@ import com.gy.mydemo.base.BaseActivity;
 public class GaoYActivity extends BaseActivity {
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_gy;
+        return R.layout.content_main;
     }
 
     @Override

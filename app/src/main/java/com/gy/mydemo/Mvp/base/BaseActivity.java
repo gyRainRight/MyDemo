@@ -19,7 +19,7 @@ import com.gy.mydemo.utils.TitleBar;
  */
 public class BaseActivity extends Activity {
     public Activity mActivity;
-//    @InjectView(R.id.title_bar)
+    @InjectView(R.id.title_bar)
     TitleBar titleBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

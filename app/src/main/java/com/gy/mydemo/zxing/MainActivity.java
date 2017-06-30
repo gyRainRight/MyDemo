@@ -45,7 +45,7 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
     public Button button4 = null;
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_main;
+        return R.layout.content_main;
     }
 
     @Override

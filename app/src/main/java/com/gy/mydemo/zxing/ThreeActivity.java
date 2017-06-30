@@ -26,7 +26,7 @@ public class ThreeActivity extends BaseActivity {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_three;
+        return R.layout.content_three;
     }
     @Override
     protected void $setToolBar() {

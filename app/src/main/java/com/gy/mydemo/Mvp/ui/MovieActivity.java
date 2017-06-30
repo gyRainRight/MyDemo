@@ -67,7 +67,7 @@ public class MovieActivity extends BaseActivity implements MovieContract.IMovieV
      * 初始化布局
      */
     private void initView() {
-        setContentView(R.layout.activity_movies);
+        setContentView(R.layout.content_movie);
         ButterKnife.inject(this);
         $setToolBar();
         initPtr();
@@ -185,6 +185,7 @@ public class MovieActivity extends BaseActivity implements MovieContract.IMovieV
         LinearLayout.LayoutParams mLayoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         view.setLayoutParams(mLayoutParams);
         load_more = (TextView) view.findViewById(R.id.tv_load_more);
+
         //监听点击加载更多事件
         load_more.setOnClickListener(new View.OnClickListener() {
             @Override
