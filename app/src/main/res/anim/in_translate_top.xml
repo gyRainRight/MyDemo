@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/bounce_interpolator">
+   <!--  渐变   duration 渐变时间    fromAlpha =0  完全不透明   toAlpha=1  完全透明-->
+    <alpha
+        android:duration="1000"
+        android:fromAlpha="0"
+        android:toAlpha="1" />
+    <!--   fromXDelta 属性为动画起始时 X坐标上的位置  
+                toXDelta   属性为动画结束时 X坐标上的位置  
+                fromYDelta 属性为动画起始时 Y坐标上的位置  
+                toYDelta   属性为动画结束时 Y坐标上的位置    -->
+    <translate
+         
+        android:duration="1000"
+        android:fromXDelta="0"
+        android:fromYDelta="-100%"
+        android:toXDelta="0"
+        android:toYDelta="0" />
+</set>

@@ -42,6 +42,10 @@ public class FirstFragmen extends Fragment implements MyItemClickListener{
     private List<NewData> mDatas;
     @InjectView(R.id.mvp)
     LinearLayout mvp;
+    @InjectView(R.id.alpha)
+    LinearLayout alpha;
+    @InjectView(R.id.alpha_new)
+    LinearLayout alpha_new;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,10 +61,28 @@ public class FirstFragmen extends Fragment implements MyItemClickListener{
         //得到控件
         ButterKnife.inject(getActivity());
         mvp= (LinearLayout) view.findViewById(R.id.mvp);
+        alpha= (LinearLayout) view.findViewById(R.id.alpha);
+        alpha_new= (LinearLayout) view.findViewById(R.id.alpha_new);
         mvp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), MovieActivity.class));
+            }
+        });
+        alpha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), MovieActivity.class));
+                getActivity().overridePendingTransition(R.anim.in_translate_top,
+                        R.anim.out_translate_top);
+            }
+        });
+        alpha_new.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), MovieActivity.class));
+                getActivity().overridePendingTransition(R.anim.unzoom_in,
+                        R.anim.unzoom_out);
             }
         });
         return view;

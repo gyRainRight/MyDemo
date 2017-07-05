@@ -11,6 +11,12 @@
         android:scrollbars="none"
         android:visibility="gone"/>
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        >
+    <LinearLayout
         android:id="@+id/mvp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,8 +28,39 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="MVP"
+            android:text="MVP 框架"
             android:textSize="20dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/alpha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="20dp">
+        <TextView
+            android:id="@+id/t_alpha"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="alpha 动画"
+            android:textSize="20dp"/>
+    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/alpha_new"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="20dp">
+            <TextView
+                android:id="@+id/t_alpha_new"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="alpha 新动画"
+                android:textSize="20dp"/>
+        </LinearLayout>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

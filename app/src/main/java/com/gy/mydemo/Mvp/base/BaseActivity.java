@@ -98,6 +98,8 @@ public class BaseActivity extends Activity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             finish();
+            overridePendingTransition(R.anim.zoom_enter,
+                    R.anim.zoom_exit);
             return true;
         }
         return false;

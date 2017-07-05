@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -201,6 +202,20 @@ public class MovieActivity extends BaseActivity implements MovieContract.IMovieV
     @Override
     public void showInfo(String info) {
         ToastUtils.showToast(this, info);
+    }
+
+    @Override
+    protected void clickRightButton(View v) {
+        super.clickRightButton(v);
+        overridePendingTransition(R.anim.zoom_enter,
+                R.anim.zoom_exit);
+    }
+
+    @Override
+    protected void clickLeftButton(View v) {
+        super.clickLeftButton(v);
+        overridePendingTransition(R.anim.zoom_enter,
+                R.anim.zoom_exit);
     }
 
 

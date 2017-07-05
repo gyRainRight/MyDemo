@@ -24,9 +24,9 @@ public class GaoYActivity extends BaseActivity {
     @Override
     protected void $setToolBar() {
         super.$setToolBar();
-        setTitle("高雨");
+        setTitle("动画");
         setLeftImage(R.drawable.back);
-        setRightTitle("提交");
+//        setRightTitle("提交");
     }
 
     @Override
