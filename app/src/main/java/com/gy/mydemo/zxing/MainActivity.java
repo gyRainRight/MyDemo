@@ -58,7 +58,7 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
     }
 
     @Override
-    protected void initView() {
+    protected void initView(Bundle savedInstanceState) {
         $setToolBar();
         initViewTwo();
 

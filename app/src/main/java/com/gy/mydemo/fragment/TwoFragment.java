@@ -11,6 +11,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 
+import com.gy.mydemo.Mvp.base.BaseFragment;
 import com.gy.mydemo.Mvp.ui.MovieActivity;
 import com.gy.mydemo.R;
 
@@ -22,7 +23,7 @@ import butterknife.OnClick;
  * Created by 名 on 2017/5/9.
  */
 
-public class TwoFragment extends Fragment implements View.OnClickListener{
+public class TwoFragment extends BaseFragment implements View.OnClickListener{
 
     LinearLayout mvp,diappear;
 

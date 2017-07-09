@@ -34,7 +34,7 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
 
-        initView();
+        initView(savedInstanceState);
         setListener();
         initData();
 
@@ -146,7 +146,7 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
     /**
      * 初始化View
      */
-    protected abstract void initView();
+    protected abstract void initView(Bundle savedInstanceState);
 
     /**
      * add Listener

@@ -2,6 +2,7 @@ package com.gy.mydemo.zxing;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -40,7 +41,7 @@ public class ThreeActivity extends BaseActivity {
      * 初始化组件
      */
     @Override
-    protected void initView() {
+    protected void initView(Bundle savedInstanceState) {
         $setToolBar();
         editText = $findViewById(R.id.edit_content);
         button = $findViewById(R.id.button_content);

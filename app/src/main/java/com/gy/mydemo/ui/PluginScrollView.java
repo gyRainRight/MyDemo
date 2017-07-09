@@ -6,8 +6,10 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 
 import com.gy.mydemo.R;
@@ -100,8 +102,8 @@ public class PluginScrollView extends RelativeLayout {
 		layout.removeAllViews();
 		for(int i=0;i<testList.size();i++){
 			final int j = i;
-			Button mbutton = new Button(context);
-			mbutton.setText("Button"+i);
+			TextView mbutton = new TextView(context);
+			mbutton.setText(""+i);
 			mbutton.setBackgroundResource(R.drawable.btn_scrollview_plugin_unselected);
 			LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 			mbutton.setLayoutParams(params);
@@ -111,6 +113,9 @@ public class PluginScrollView extends RelativeLayout {
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
 					viewpager.setCurrentItem(j, true);
+					if (j==0){
+
+					}
 				}
 			});
 			layout.addView(mbutton);
@@ -163,10 +168,10 @@ public class PluginScrollView extends RelativeLayout {
 		
 	}
 	
-	private Button getButtonInLayout(int i){
+	private TextView getButtonInLayout(int i){
 		View view = layout.getChildAt(i);
-		if(view instanceof Button){
-			return (Button)view;
+		if(view instanceof TextView){
+			return (TextView)view;
 		}
 		return null;
 	}

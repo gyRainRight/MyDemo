@@ -3,6 +3,7 @@ package com.gy.mydemo.Activity;
 
 
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
@@ -48,7 +49,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     @Override
-    protected void initView() {
+    protected void initView(  Bundle savedInstanceState) {
         $setToolBar();
         main_frame_layout = $findViewById(R.id.main_frame_layout);
         v_center=$findViewById(R.id.v_center);
@@ -60,11 +61,15 @@ public class LoginActivity extends BaseActivity {
         t_center=$findViewById(R.id.t_center);
         t_first=$findViewById(R.id.t_first);
         t_two=$findViewById(R.id.t_two);
-        setAllImageView(v_first);
-        initFragment1();
-        isFirst=true;
-        isTwo=false;
-        isCenter=false;
+        if (savedInstanceState==null){
+            setAllImageView(v_first);
+            initFragment1();
+            isFirst=true;
+            isTwo=false;
+            isCenter=false;
+        }
+
+
 
 
     }
@@ -156,7 +161,7 @@ public class LoginActivity extends BaseActivity {
         //第一种方式（add），初始化fragment并添加到事务中，如果为null就new一个
         if(f1 == null){
             f1 = new FirstFragmen();
-           transaction.add(R.id.main_frame_layout,f1);
+           transaction.add(R.id.main_frame_layout,f1,f1.getClass().getName());
         }
         //隐藏所有fragment
         hideFragment(transaction);
@@ -181,7 +186,7 @@ public class LoginActivity extends BaseActivity {
 
         if(f2 == null){
             f2 = new TwoFragment();
-            transaction.add(R.id.main_frame_layout,f2);
+            transaction.add(R.id.main_frame_layout,f2,f2.getClass().getName());
         }
         hideFragment(transaction);
         transaction.show(f2);
@@ -200,7 +205,7 @@ public class LoginActivity extends BaseActivity {
 
         if(f3 == null){
             f3 = new CenterFragment();
-            transaction.add(R.id.main_frame_layout,f3);
+            transaction.add(R.id.main_frame_layout,f3,f3.getClass().getName());
         }
         hideFragment(transaction);
         transaction.show(f3);

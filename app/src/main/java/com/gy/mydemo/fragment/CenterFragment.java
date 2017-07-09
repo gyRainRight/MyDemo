@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.gy.mydemo.Mvp.base.BaseFragment;
 import com.gy.mydemo.R;
 import com.gy.mydemo.zxing.MApplication;
 import com.gy.mydemo.zxing.MainActivity;
@@ -26,7 +27,7 @@ import static com.gy.mydemo.zxing.MainActivity.REQUEST_CODE;
  */
 
 @SuppressLint("ValidFragment")
-public class CenterFragment extends Fragment {
+public class CenterFragment extends BaseFragment {
 
 
     public Button button1 = null;

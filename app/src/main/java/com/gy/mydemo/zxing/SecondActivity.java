@@ -34,7 +34,7 @@ public class SecondActivity extends BaseActivity {
 
     }
     @Override
-    protected void initView() {
+    protected void initView(Bundle savedInstanceState) {
         $setToolBar();
 
     }

@@ -41,7 +41,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activity.GaoYActivity"
+            android:name=".Mvp.ui.GaoYActivity"
             android:launchMode="singleTop">
         </activity>
         <activity android:name=".zxing.SecondActivity"
@@ -51,6 +51,9 @@
             android:launchMode="singleTop">
         </activity>
         <activity android:name=".Mvp.ui.MovieActivity"
+            android:launchMode="singleTop">
+        </activity>
+        <activity android:name=".Mvvm.ui.MvvmMoviActivity"
             android:launchMode="singleTop">
         </activity>
     </application>

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content" >
 
-    <com.duguang.baseanimation.ui.tab.scroll.widget.MyHorizontalScrollView
+    <com.gy.mydemo.ui.MyHorizontalScrollView
         android:id="@+id/my_horizontal_scrollview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,9 +14,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal" />
-    </com.duguang.baseanimation.ui.tab.scroll.widget.MyHorizontalScrollView>
+    </com.gy.mydemo.ui.MyHorizontalScrollView>
 
-    <com.duguang.baseanimation.ui.tab.scroll.widget.ScrollIndicator
+    <com.gy.mydemo.ui.ScrollIndicator
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true" />
