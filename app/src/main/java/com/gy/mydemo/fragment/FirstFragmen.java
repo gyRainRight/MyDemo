@@ -74,7 +74,7 @@ public class FirstFragmen extends BaseFragment {
         mvp= (LinearLayout) view.findViewById(R.id.mvp);
         alpha= (LinearLayout) view.findViewById(R.id.alpha);
         alpha_new= (LinearLayout) view.findViewById(R.id.alpha_new);
-        image= (LinearLayout) view.findViewById(R.id.image);
+        image= (LinearLayout) view.findViewById(R.id.ll_image);
         mvp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
