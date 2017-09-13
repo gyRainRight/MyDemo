@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,27 @@ public class CenterFragment extends BaseFragment {
     public Button button2 = null;
     public Button button3 = null;
     public Button button4 = null;
+    private static final String THREE_FRAGMENT = "THREE_FRAGMENT";
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            boolean isSupportHidden = savedInstanceState.getBoolean(THREE_FRAGMENT);
+
+            FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+            if (isSupportHidden) {
+                ft.hide(this);
+            } else {
+                ft.show(this);
+            }
+            ft.commit();
+        }
+    }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+
+        outState.putBoolean(THREE_FRAGMENT, isHidden());
+    }
 
 
     @Nullable

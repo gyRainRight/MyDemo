@@ -1,14 +1,12 @@
 package com.gy.mydemo.fragment;
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 
 import com.gy.mydemo.Mvp.base.BaseFragment;
@@ -32,6 +30,30 @@ public class TwoFragment extends BaseFragment implements View.OnClickListener{
     LinearLayout alpha_new;
 
     LinearLayout filp,filp_vertical;
+    private static final String TWO_FRAGMENT = "TWO_FRAGMENT";
+
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            boolean isSupportHidden = savedInstanceState.getBoolean(TWO_FRAGMENT);
+
+            FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+            if (isSupportHidden) {
+                ft.hide(this);
+            } else {
+                ft.show(this);
+            }
+            ft.commit();
+        }
+
+    }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+
+        outState.putBoolean(TWO_FRAGMENT, isHidden());
+    }
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -4,14 +4,15 @@ package com.gy.mydemo.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import android.support.v4.app.FragmentTransaction;
 
+import com.gy.mydemo.Activity.ImageActivity;
 import com.gy.mydemo.Mvp.base.BaseFragment;
 import com.gy.mydemo.Mvp.ui.GaoYActivity;
 
@@ -38,15 +39,31 @@ public class FirstFragmen extends BaseFragment {
     LinearLayout mvp;
     @InjectView(R.id.alpha)
     LinearLayout alpha;
-    @InjectView(R.id.alpha_new)
-    LinearLayout alpha_new;
+    LinearLayout alpha_new,image;
+    private static final String FIRST_FRAGMENT = "FIRST_FRAGMENT";
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            boolean isSupportHidden = savedInstanceState.getBoolean(FIRST_FRAGMENT);
+
+            FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+            if (isSupportHidden) {
+                ft.hide(this);
+            } else {
+                ft.show(this);
+            }
+            ft.commit();
+        }
 
     }
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
 
+        outState.putBoolean(FIRST_FRAGMENT, isHidden());
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -57,6 +74,7 @@ public class FirstFragmen extends BaseFragment {
         mvp= (LinearLayout) view.findViewById(R.id.mvp);
         alpha= (LinearLayout) view.findViewById(R.id.alpha);
         alpha_new= (LinearLayout) view.findViewById(R.id.alpha_new);
+        image= (LinearLayout) view.findViewById(R.id.image);
         mvp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,6 +93,14 @@ public class FirstFragmen extends BaseFragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), GaoYActivity.class));
+                getActivity().overridePendingTransition(R.anim.unzoom_in,
+                        R.anim.unzoom_out);
+            }
+        });
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), ImageActivity.class));
                 getActivity().overridePendingTransition(R.anim.unzoom_in,
                         R.anim.unzoom_out);
             }

@@ -32,13 +32,15 @@ public class LoginActivity extends BaseActivity {
     private CenterFragment f3;
     private LoginActivity mThis=this;
     private boolean isFirst=false,isTwo=false,isCenter=false;
-
-
+    private static final  String[] FRAGMENT_TAG = {"first","two","three"};
+    private static final  String PRV_SELINDEX="PREV_SELINDEX";
+    private int selindex=0;
     @Override
     protected void $setToolBar() {
         // 不用父类的样式
         super.$setToolBar();
-        setImage(R.drawable.app_icon);
+//        setImage(R.drawable.app_icon);
+        setTitle("夜夜雨");
 //        setBackGround(R.drawable.uikit_header_bg);
 
     }
@@ -46,6 +48,13 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected int getLayoutId() {
         return R.layout.activity_login;
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        //保存tab选中的状态
+        outState.putInt(PRV_SELINDEX,selindex);
+        super.onSaveInstanceState(outState);
     }
 
     @Override
@@ -61,18 +70,46 @@ public class LoginActivity extends BaseActivity {
         t_center=$findViewById(R.id.t_center);
         t_first=$findViewById(R.id.t_first);
         t_two=$findViewById(R.id.t_two);
-        if (savedInstanceState==null){
-            setAllImageView(v_first);
-            initFragment1();
-            isFirst=true;
-            isTwo=false;
-            isCenter=false;
+        if (savedInstanceState!=null){
+            selindex=savedInstanceState.getInt(PRV_SELINDEX,selindex);
+            f1= (FirstFragmen) getSupportFragmentManager().findFragmentByTag(FRAGMENT_TAG[0]);
+            f2= (TwoFragment) getSupportFragmentManager().findFragmentByTag(FRAGMENT_TAG[1]);
+            f3= (CenterFragment) getSupportFragmentManager().findFragmentByTag(FRAGMENT_TAG[2]);
         }
 
-
+        setTabSelection(selindex);
 
 
     }
+
+    private void setTabSelection(int selindex) {
+        switch (selindex){
+            case 0:
+                setAllImageView(v_first);
+                initFragment1();
+                isFirst=true;
+                isTwo=false;
+                isCenter=false;
+                break;
+            case  1:
+                isFirst=false;
+                isTwo=true;
+                isCenter=false;
+                setTitle("消息");
+                setAllImageView(v_two);
+                initFragment2();
+                break;
+            case 2:
+                isFirst=false;
+                isTwo=false;
+                isCenter=true;
+                setTitle("个人中心");
+                setAllImageView(v_center);
+                initFragment3();
+                break;
+        }
+    }
+
 
     @Override
     protected void setListener() {
@@ -161,13 +198,14 @@ public class LoginActivity extends BaseActivity {
         //第一种方式（add），初始化fragment并添加到事务中，如果为null就new一个
         if(f1 == null){
             f1 = new FirstFragmen();
-           transaction.add(R.id.main_frame_layout,f1,f1.getClass().getName());
+           transaction.add(R.id.main_frame_layout,f1,FRAGMENT_TAG[0]);
         }
         //隐藏所有fragment
         hideFragment(transaction);
         //显示需要显示的fragment
         transaction.show(f1);
-
+//        transaction.hide(f2);
+//        transaction.hide(f3);
         //第二种方式(replace)，初始化fragment
 //        if(f1 == null){
 //            f1 = new MyFragment("消息");
@@ -186,11 +224,12 @@ public class LoginActivity extends BaseActivity {
 
         if(f2 == null){
             f2 = new TwoFragment();
-            transaction.add(R.id.main_frame_layout,f2,f2.getClass().getName());
+            transaction.add(R.id.main_frame_layout,f2,FRAGMENT_TAG[1]);
         }
         hideFragment(transaction);
         transaction.show(f2);
-
+//        transaction.hide(f1);
+//        transaction.hide(f3);
 //        if(f2 == null) {
 //            f2 = new MyFragment("联系人");
 //        }
@@ -205,11 +244,12 @@ public class LoginActivity extends BaseActivity {
 
         if(f3 == null){
             f3 = new CenterFragment();
-            transaction.add(R.id.main_frame_layout,f3,f3.getClass().getName());
+            transaction.add(R.id.main_frame_layout,f3,FRAGMENT_TAG[2]);
         }
         hideFragment(transaction);
         transaction.show(f3);
-
+//        transaction.hide(f1);
+//        transaction.hide(f2);
 //        if(f3 == null) {
 //            f3 = new MyFragment("动态");
 //        }
